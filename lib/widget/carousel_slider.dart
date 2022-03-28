@@ -66,12 +66,26 @@ class _CarouselImgState extends State<CarouselImg> {
                     children: [
                       like[_currentPage]
                           ? IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.check),
+                              onPressed: () {
+                                setState(() {
+                                  like[_currentPage] = !like[_currentPage];
+                                  movies[_currentPage]
+                                      .reference!
+                                      .update({'likes': like[_currentPage]});
+                                });
+                              },
+                              icon: const Icon(Icons.check),
                             )
                           : IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.add),
+                              onPressed: () {
+                                setState(() {
+                                  like[_currentPage] = !like[_currentPage];
+                                  movies[_currentPage]
+                                      .reference!
+                                      .update({'likes': like[_currentPage]});
+                                });
+                              },
+                              icon: const Icon(Icons.favorite),
                             ),
                       Text(
                         "My Saved",

@@ -119,7 +119,12 @@ class _DetailScreenState extends State<DetailScreen> {
                 Container(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        like = !like;
+                        widget.movies.reference!.update({'likes': like});
+                      });
+                    },
                     child: Column(
                       children: [
                         like ? Icon(Icons.check) : Icon(Icons.add),
@@ -127,7 +132,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           padding: EdgeInsets.all(5),
                         ),
                         const Text(
-                          "My Saved",
+                          "Like?",
                           style: TextStyle(fontSize: 11, color: Colors.white60),
                         )
                       ],
@@ -143,7 +148,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         padding: EdgeInsets.all(5),
                       ),
                       Text(
-                        "Like?",
+                        "Recommend",
                         style: TextStyle(fontSize: 11, color: Colors.white60),
                       )
                     ],

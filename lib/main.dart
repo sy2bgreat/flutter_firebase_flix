@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_movies/screen/home_screen.dart';
 import 'package:flutter_firebase_movies/screen/profile_screen.dart';
+import 'package:flutter_firebase_movies/screen/search_screen.dart';
 import 'package:flutter_firebase_movies/widget/bottom_bar.dart';
 import 'firebase_options.dart';
 
@@ -34,7 +35,7 @@ class _MyAppState extends State<MyApp> {
           length: 4,
           child: Scaffold(
             body: TabBarView(
-              children: [const Home(), Container(), Container(), Profile()],
+              children: [const Home(), Search(), Container(), Profile()],
               physics: const NeverScrollableScrollPhysics(),
             ),
             bottomNavigationBar: const Bottom(),
